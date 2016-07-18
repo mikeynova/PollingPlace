@@ -26,7 +26,9 @@ app.use(bodyParser.json());
 app.use(express.static('./client'));
 app.use('/api', pickups);
 app.use('*', express.static(__dirname + '/client'));
-// app.use('/api', locations);
+app.use('/*', function(req, res) {
+  res.redirect('/')
+});
 
 
 
